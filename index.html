@@ -89,6 +89,18 @@
       <section>
         <h2>Experience</h2>
 
+        <h3>Thesis : Smart-watch Based Robot Control<span class="muted">• ASU • Jan 2025 – Dec 2025</span></h3>
+        <ul>
+          Using a teleoperation framework that uses a smart-watch based motion capture (wear_mocap) with Dynamic Movement Primitives (DMPs) and In-Context Learning (ICL) for robot control. 
+          Gazebo with ROS2 was used for the first version of the teleop. Gazebo's strenght being how easy it is to go from the simulation to the real robot. However for the next step of the thesis, the physics made it way harder. Since after the thesis, everything has been swapped to Mujoco.
+          For the teleoperation, the pipeline starts with the wrist, elbow and shoulder position that we get with the smart-watch. It'll be scaled down to the robot arm's length. After that, Pinocchio will be used for the inverse kinematics that will give us the right joint rotation. 
+          The position are streamed at 50hz with a low-pass filter on it and also divided into 3 more points for every points, to make sure that the robot move as smoothly as possible. THe robot only has gains and not PID controler. 
+
+          For the machine learning part, we used a Tether ball game for the optimization of a single hit. Meaning that we want to train it to hit furthest as possible, getting as many turn around the pole. This is were gazebo caused problems as creating a rope is pretty hard there.
+          
+          
+        </ul>
+
         <h3>INDISPENSE — Software Intern (Robotic start-up) <span class="muted">• Phoenix, AZ • Jun 2025 – Aug 2025</span></h3>
         <ul>
           <li>Debugged and resolved long-standing issues impacting autonomous prescription dispensing workflows.</li>
