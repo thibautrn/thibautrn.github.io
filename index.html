@@ -148,15 +148,6 @@
           For the teleoperation, the pipeline starts with the wrist, elbow and shoulder position that we get with the smart-watch. It'll be scaled down to the robot arm's length. After that, Pinocchio will be used for the inverse kinematics that will give us the right joint rotation.
           The position are streamed at 50hz with a low-pass filter on it and also divided into 3 more points for every points, to make sure that the robot move as smoothly as possible. THe robot only has gains and not PID controler.
         </p>
-
-        <p>
-          For the machine learning part, we used a Tether ball game for the optimization of a single hit. Meaning that we want to train it to hit furthest as possible, getting as many turn around the pole. This is were gazebo caused problems as creating a rope is pretty hard there.
-          Dynamic Movement Primitives are used to record the movement and then can be reused as it is or by modifying it. This will be used for the In-Context learning as we'll ask it to generate us new DMP weights.
-        </p>
-      </div>
-
-      <!-- YouTube embeds that behave like looping GIFs -->
-      <div class="mediaRow">
         <div class="videoWrap">
           <iframe
             src="https://www.youtube.com/embed/DDlzJoHJgN8?autoplay=1&mute=1&loop=1&playlist=DDlzJoHJgN8&controls=0&modestbranding=1&playsinline=1&rel=0"
@@ -166,7 +157,10 @@
           ></iframe>
         </div>
 
-
+        <p>
+          For the machine learning part, we used a Tether ball game for the optimization of a single hit. Meaning that we want to train it to hit furthest as possible, getting as many turn around the pole. This is were gazebo caused problems as creating a rope is pretty hard there.
+          Dynamic Movement Primitives are used to record the movement and then can be reused as it is or by modifying it. This will be used for the In-Context learning as we'll ask it to generate us new DMP weights.
+        </p>
         <div class="videoWrap">
           <iframe 
             src="https://www.youtube.com/embed/hYY0PsCxXLs?autoplay=1&mute=1&loop=1&playlist=hYY0PsCxXLs&controls=0&modestbranding=1&playsinline=1&rel=0"
@@ -176,6 +170,11 @@
           ></iframe>
         </div>
       </div>
+
+      <!-- YouTube embeds that behave like looping GIFs -->
+
+
+      
 
       <div class="caption">
         Replace <code>VIDEO_ID_1</code> and <code>VIDEO_ID_2</code> with your YouTube video IDs.
