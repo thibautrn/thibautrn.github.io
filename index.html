@@ -57,6 +57,7 @@
     .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
     .tag{
       font-size:12px; color:#cbd5e1;
+      border:1 solid var(--line);
       border:1px solid var(--line);
       background: rgba(15,23,42,.6);
       padding:6px 10px; border-radius:999px;
@@ -77,20 +78,27 @@
       margin-top:10px;
     }
 
-    /* Images + GIFs */
+    /* Media rows */
     .mediaRow{ display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; }
-    .media{
-      width:100%;
-      max-width:900px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      display:block;
-    }
-    .mediaRow .media{
+    .caption{ color:var(--muted); font-size:13px; margin-top:6px; }
+
+    /* YouTube embed wrapper (GIF-like) */
+    .videoWrap{
+      position: relative;
+      width: 100%;
       flex: 1 1 320px;
       max-width: 480px;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
     }
-    .caption{ color:var(--muted); font-size:13px; margin-top:6px; }
+    .videoWrap iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
 
     footer{margin-top:18px; color:var(--muted); font-size:13px}
   </style>
@@ -129,30 +137,50 @@
 
       <h3>Thesis: Smartwatch-Based Robot Control <span class="muted">• ASU • Jan 2025 – Dec 2025</span></h3>
       <p class="muted">Teleoperation • wear_mocap • ROS2 • MuJoCo/Gazebo • Pinocchio IK • DMP • In-Context Learning</p>
-      
+
       <div class="exp">
         <p>
-          Using a teleoperation framework that uses a smart-watch based motion capture (wear_mocap) with Dynamic Movement Primitives (DMPs) and In-Context Learning (ICL) for robot control. 
+          Using a teleoperation framework that uses a smart-watch based motion capture (wear_mocap) with Dynamic Movement Primitives (DMPs) and In-Context Learning (ICL) for robot control.
           Gazebo with ROS2 was used for the first version of the teleop. Gazebo's strenght being how easy it is to go from the simulation to the real robot. However for the next step of the thesis, the physics made it way harder. Since after the thesis, everything has been swapped to Mujoco.
         </p>
 
         <p>
-          For the teleoperation, the pipeline starts with the wrist, elbow and shoulder position that we get with the smart-watch. It'll be scaled down to the robot arm's length. After that, Pinocchio will be used for the inverse kinematics that will give us the right joint rotation. 
-          The position are streamed at 50hz with a low-pass filter on it and also divided into 3 more points for every points, to make sure that the robot move as smoothly as possible. THe robot only has gains and not PID controler. 
+          For the teleoperation, the pipeline starts with the wrist, elbow and shoulder position that we get with the smart-watch. It'll be scaled down to the robot arm's length. After that, Pinocchio will be used for the inverse kinematics that will give us the right joint rotation.
+          The position are streamed at 50hz with a low-pass filter on it and also divided into 3 more points for every points, to make sure that the robot move as smoothly as possible. THe robot only has gains and not PID controler.
         </p>
 
         <p>
           For the machine learning part, we used a Tether ball game for the optimization of a single hit. Meaning that we want to train it to hit furthest as possible, getting as many turn around the pole. This is were gazebo caused problems as creating a rope is pretty hard there.
-          Dynamic Movement Primitives are used to record the movement and then can be reused as it is or by modifying it. This will be used for the In-Context learning as we'll ask it to generate us new DMP weights. 
+          Dynamic Movement Primitives are used to record the movement and then can be reused as it is or by modifying it. This will be used for the In-Context learning as we'll ask it to generate us new DMP weights.
         </p>
       </div>
 
-      <!-- Put images/gifs inside /assets in your repo -->
+      <!-- YouTube embeds that behave like looping GIFs -->
       <div class="mediaRow">
-        <img class="media" src="assets/thesis_pipeline.png" alt="Teleoperation pipeline diagram">
-        <img class="media" src="assets/tetherball_demo.gif" alt="Tetherball demo (MuJoCo)">
+        <div class="videoWrap">
+          <iframe
+            src="https://www.youtube.com/embed/DDlzJoHJgN8?autoplay=1&mute=1&loop=1&playlist=DDlzJoHJgN8&controls=0&modestbranding=1&playsinline=1&rel=0"
+            title="Demo"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+
+        <div class="videoWrap">
+          <iframe 
+            src="https://www.youtube.com/embed/hYY0PsCxXLs?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID_2&controls=0&modestbranding=1&playsinline=1&rel=0"
+            title="Tetherball demo (MuJoCo)"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-      <div class="caption">Add files to your repo under <b>/assets</b> and reference them like <code>assets/filename.png</code>.</div>
+
+      <div class="caption">
+        Replace <code>VIDEO_ID_1</code> and <code>VIDEO_ID_2</code> with your YouTube video IDs.
+        (Looping requires <code>playlist=VIDEO_ID</code>.)
+      </div>
 
       <hr class="sep">
 
