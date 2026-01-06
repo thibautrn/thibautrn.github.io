@@ -183,13 +183,37 @@
 
       <hr class="sep">
 
-      <h3>INDISPENSE — Software Intern (Robotic start-up) <span class="muted">• Phoenix, AZ • Jun 2025 – Aug 2025</span></h3>
+      <h3>
+        INDISPENSE — Software Intern (Robotic start-up)
+        <span class="muted">• Phoenix, AZ • Jun 2025 – Aug 2025</span>
+      </h3>
+      
       <ul>
-        <li>Debugged and resolved long-standing issues impacting autonomous prescription dispensing workflows.</li>
-        <li>Built/iterated machine-vision checks to identify empty buckets used for medicine delivery and reduce mis-picks.</li>
-        <li>Used lateral, uncalibrated camera views to detect misplaced trays that could block the robotic grabber.</li>
-        <li>Focused on reliability: practical edge cases, repeatable verification steps, and fast iteration with the team.</li>
+        <li>
+          Built a vision-based <b>“bucket empty / item left behind”</b> detector to reduce missed pickups and improve user prompting,
+          using <b>OpenCV edge detection + template matching</b> with auto-detected bucket geometry across inconsistent camera setups.
+        </li>
+        <li>
+          Validated early pattern-detection approach on <b>~10,000 images</b> (observed <b>~10–15 failures</b>) and iterated to a more robust
+          pipeline by locating bucket boundaries and matching the bucket-bottom template.
+        </li>
+        <li>
+          Developed a <b>misplaced-cartridge detection</b> system to prevent robotic grabber collisions using <b>dual side cameras</b> to flag
+          cartridges in the robot’s path.
+        </li>
+        <li>
+          Pivoted from edge-based detection (unstable due to camera quality) to <b>AprilTag-based localization</b>, defining correct tag placement
+          zones and resolving row/depth ambiguity.
+        </li>
+        <li>
+          Implemented <b>camera calibration + distortion correction</b> and used <b>solvePnP</b> with real-world tag size to estimate pose/depth
+          for more reliable detection under clutter and variable lighting.
+        </li>
+        <li>
+          Packaged deliverables for integration (handoff to GUI/software implementation) and documented experiments and results for fast iteration.
+        </li>
       </ul>
+      
 
       <hr class="sep">
 
