@@ -101,6 +101,41 @@
     }
 
     footer{margin-top:18px; color:var(--muted); font-size:13px}
+
+    details.expDrop{
+      margin-top: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(15,23,42,.35);
+      overflow: hidden;
+    }
+    details.expDrop > summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    details.expDrop > summary::-webkit-details-marker{ display:none; }
+  
+    .sumLeft{ display:flex; flex-direction:column; gap:6px; }
+    .sumTitle{ font-size: 14px; font-weight: 700; margin: 0; }
+    .sumSnippet{ color: var(--muted); font-size: 13px; line-height: 1.6; margin: 0; }
+  
+    .chev{
+      color: var(--muted);
+      font-size: 13px;
+      padding-top: 2px;
+      user-select: none;
+      white-space: nowrap;
+      transition: transform .15s ease;
+    }
+    details[open] .chev{ transform: rotate(180deg); }
+  
+    .dropBody{ padding: 0 14px 14px; }
+    .dropBody .exp{ margin-top: 10px; }
   </style>
 </head>
 
@@ -135,41 +170,56 @@
     <section>
       <h2>Experience</h2>
 
-      <h3>Thesis: Smartwatch-Based Robot Control <span class="muted">• ASU • Jan 2025 – Dec 2025</span></h3>
-      <p class="muted">Teleoperation • wear_mocap • ROS2 • MuJoCo/Gazebo • Pinocchio IK • DMP • In-Context Learning</p>
-
-      <div class="exp">
-        <p>
-          Using a teleoperation framework that uses a smart-watch based motion capture (wear_mocap) with Dynamic Movement Primitives (DMPs) and In-Context Learning (ICL) for robot control.
-          Gazebo with ROS2 was used for the first version of the teleop. Gazebo's strenght being how easy it is to go from the simulation to the real robot. However for the next step of the thesis, the physics made it way harder. Since after the thesis, everything has been swapped to Mujoco.
-        </p>
-
-        <p>
-          For the teleoperation, the pipeline starts with the wrist, elbow and shoulder position that we get with the smart-watch. It'll be scaled down to the robot arm's length. After that, Pinocchio will be used for the inverse kinematics that will give us the right joint rotation.
-          The position are streamed at 50hz with a low-pass filter on it and also divided into 3 more points for every points, to make sure that the robot move as smoothly as possible. THe robot only has gains and not PID controler.
-        </p>
-        <div class="videoWrap">
-          <iframe
-            src="https://www.youtube.com/embed/DDlzJoHJgN8?autoplay=1&mute=1&loop=1&playlist=DDlzJoHJgN8&controls=0&modestbranding=1&playsinline=1&rel=0"
-            title="Demo"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+      <details class="expDrop">
+        <summary>
+          <div class="sumLeft">
+            <p class="sumTitle">Thesis: Smartwatch-Based Robot Control <span class="muted">• ASU • Jan 2025 – Dec 2025</span></p>
+            <p class="sumSnippet">
+              Smartwatch motion capture (wear_mocap) → scaled arm kinematics → Pinocchio IK → ROS2 control; simulation in Gazebo then moved to MuJoCo for better physics. DMPs + In-Context Learning for trajectory generation.
+            </p>
+          </div>
+          <span class="chev">▼</span>
+        </summary>
+      
+        <div class="dropBody">
+          <p class="muted">Teleoperation • wear_mocap • ROS2 • MuJoCo/Gazebo • Pinocchio IK • DMP • In-Context Learning</p>
+      
+          <div class="exp">
+            <p>
+              Using a teleoperation framework that uses a smart-watch based motion capture (wear_mocap) with Dynamic Movement Primitives (DMPs) and In-Context Learning (ICL) for robot control.
+              Gazebo with ROS2 was used for the first version of the teleop. Gazebo's strenght being how easy it is to go from the simulation to the real robot. However for the next step of the thesis, the physics made it way harder. Since after the thesis, everything has been swapped to Mujoco.
+            </p>
+      
+            <p>
+              For the teleoperation, the pipeline starts with the wrist, elbow and shoulder position that we get with the smart-watch. It'll be scaled down to the robot arm's length. After that, Pinocchio will be used for the inverse kinematics that will give us the right joint rotation.
+              The position are streamed at 50hz with a low-pass filter on it and also divided into 3 more points for every points, to make sure that the robot move as smoothly as possible. THe robot only has gains and not PID controler.
+            </p>
+      
+            <div class="videoWrap">
+              <iframe
+                src="https://www.youtube.com/embed/DDlzJoHJgN8?autoplay=1&mute=1&loop=1&playlist=DDlzJoHJgN8&controls=0&modestbranding=1&playsinline=1&rel=0"
+                title="Teleoperation demo"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+      
+            <p>
+              For the machine learning part, we used a Tether ball game for the optimization of a single hit. Meaning that we want to train it to hit furthest as possible, getting as many turn around the pole. This is were gazebo caused problems as creating a rope is pretty hard there.
+              Dynamic Movement Primitives are used to record the movement and then can be reused as it is or by modifying it. This will be used for the In-Context learning as we'll ask it to generate us new DMP weights.
+            </p>
+      
+            <div class="videoWrap">
+              <iframe 
+                src="https://www.youtube.com/embed/hYY0PsCxXLs?autoplay=1&mute=1&loop=1&playlist=hYY0PsCxXLs&controls=0&modestbranding=1&playsinline=1&rel=0"
+                title="Tetherball demo (MuJoCo)"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
         </div>
-
-        <p>
-          For the machine learning part, we used a Tether ball game for the optimization of a single hit. Meaning that we want to train it to hit furthest as possible, getting as many turn around the pole. This is were gazebo caused problems as creating a rope is pretty hard there.
-          Dynamic Movement Primitives are used to record the movement and then can be reused as it is or by modifying it. This will be used for the In-Context learning as we'll ask it to generate us new DMP weights.
-        </p>
-        <div class="videoWrap">
-          <iframe 
-            src="https://www.youtube.com/embed/hYY0PsCxXLs?autoplay=1&mute=1&loop=1&playlist=hYY0PsCxXLs&controls=0&modestbranding=1&playsinline=1&rel=0"
-            title="Tetherball demo (MuJoCo)"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
+      </details>
 
       <!-- YouTube embeds that behave like looping GIFs -->
 
