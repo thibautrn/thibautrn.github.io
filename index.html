@@ -189,38 +189,8 @@
       </h3>
       
       
-      <ul>
-        <li>
-          Built a vision-based <b>“bucket empty / item left behind”</b> detector to reduce missed pickups and improve user prompting, using
-          <b>OpenCV edge detection + template matching</b> with auto-detected bucket geometry across inconsistent camera setups.
-        </li>
-        <li>
-          Evaluated early pattern-detection approach on <b>~10,000 images</b> (observed <b>~10–15 failures</b>) and iterated to a more robust
-          pipeline by locating bucket boundaries and matching the bucket-bottom template.
-        </li>
-        <li>
-          Developed a <b>misplaced-cartridge detection</b> system to prevent robotic grabber collisions, using <b>dual side cameras</b> to flag
-          cartridges in the robot’s path.
-        </li>
-        <li>
-          Pivoted from edge-based detection (unstable due to camera quality) to <b>AprilTag-based localization</b>, defining correct tag placement
-          zones and handling row/depth ambiguity.
-        </li>
-        <li>
-          Implemented <b>camera calibration + distortion correction</b> and used <b>solvePnP</b> to estimate tag pose/depth from real-world tag
-          size, improving reliability in cluttered views.
-        </li>
-        <li>
-          Packaged deliverables for integration (handoff to GUI/software implementation) and documented experiments/results for fast iteration.
-        </li>
-      </ul>
-      
-      <p class="muted">
-        <b>Tech:</b> Python, OpenCV, template matching, edge detection, AprilTags, camera calibration, solvePnP, large-scale experimentation.
-      </p>
-      
-      <hr/>
-      
+  
+            
       <!-- =========================
            Website version (project-style, more detailed)
            ========================= -->
