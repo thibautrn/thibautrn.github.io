@@ -226,80 +226,76 @@
 
       
 
-      <div class="caption">
-        Replace <code>VIDEO_ID_1</code> and <code>VIDEO_ID_2</code> with your YouTube video IDs.
-        (Looping requires <code>playlist=VIDEO_ID</code>.)
-      </div>
-
       <hr class="sep">
 
-      <h3>
-        INDISPENSE — Software Intern (Robotic start-up)
-        <span class="muted">• Phoenix, AZ • Jun 2025 – Aug 2025</span>
-      </h3>
-      
-      
-  
+        <details class="expDrop">
+          <summary>
+            <div class="sumLeft">
+              <p class="sumTitle">INDISPENSE — Software Intern (Robotic start-up) <span class="muted">• Phoenix, AZ • Jun 2025 – Aug 2025</span></p>
+              <p class="sumSnippet">
+                Built OpenCV pipelines for automated medication dispensing kiosks: (1) bucket empty / left-behind item detection validated on ~10k images,
+                and (2) misplaced cartridge collision prevention using AprilTags + camera calibration + solvePnP for reliable pose/depth checks.
+              </p>
+            </div>
+            <span class="chev">▼</span>
+          </summary>
+        
+          <div class="dropBody">
+            <div class="exp">
+              <p>
+                During a summer internship on automated medication dispensing kiosks, I worked on two real-world computer vision problems using
+                <b>only existing cameras</b> (hardware constraints, minimal ability to modify the deployed system).
+              </p>
+            </div>
             
-      <!-- =========================
-           Website version (project-style, more detailed)
-           ========================= -->
-      <h2>Computer Vision Reliability Upgrades for Automated Medication Dispensing</h2>
-      
-      <div class="exp">
-        <p>
-          During a summer internship on automated medication dispensing kiosks, I worked on two real-world computer vision problems using
-          <b>only existing cameras</b> (hardware constraints, minimal ability to modify the deployed system).
-        </p>
-      </div>
-      
-      <h4>1) “Bucket Empty / Item Left Behind” Detection</h4>
-      <p>
-        <b>Goal:</b> Detect whether the pickup bucket is empty or if an item/paper was left behind, so the system can prompt the user before they walk away.
-      </p>
-      
-      <ul>
-        <li>
-          Started with classic CV methods (<b>edge detection</b>, <b>pattern/template matching</b> in OpenCV).
-        </li>
-        <li>
-          Validated on a dataset of <b>~10,000 images</b>; the initial approach produced <b>~10–15 failures</b>, then redesigned the pipeline for robustness.
-        </li>
-        <li>
-          Improved reliability by <b>automatically detecting bucket geometry</b> (edge-based boundary detection) and matching the bucket bottom with a template,
-          which handled inconsistencies across camera setups.
-        </li>
-      </ul>
-      
-      <p>
-        <b>Outcome:</b> The revised method reduced failures to almost none in testing and was prepared for integration into the kiosk software stack.
-      </p>
-      
-      <h4>2) Misplaced Cartridge Detection to Prevent Robot Collisions</h4>
-      <p>
-        <b>Goal:</b> Prevent the robotic grabber from colliding with <b>misplaced cartridges</b>, using <b>two side cameras</b> to monitor cartridge placement.
-      </p>
-      
-      <ul>
-        <li>
-          Attempted edge-based cartridge detection first, but camera quality made results unstable.
-        </li>
-        <li>
-          Introduced <b>AprilTags</b> on cartridge sides (a change allowed on consumables), enabling robust detection with limited compute and poor imaging conditions.
-        </li>
-        <li>
-          Defined the expected tag positions for “correctly seated” cartridges and handled a key ambiguity where deeper tags could overlap another row’s region.
-        </li>
-        <li>
-          Used <b>tag pixel size + solvePnP</b> (with real-world tag dimensions) to estimate depth/pose, and performed <b>camera calibration + distortion correction</b>
-          to stabilize measurements.
-        </li>
-      </ul>
-      
-      <p>
-        <b>Outcome:</b> By the end of the internship, the pipeline was close to finalization with the aim of reducing collision-related maintenance across machines.
-      </p>
-      
+            <h4>1) “Bucket Empty / Item Left Behind” Detection</h4>
+            <p>
+              <b>Goal:</b> Detect whether the pickup bucket is empty or if an item/paper was left behind, so the system can prompt the user before they walk away.
+            </p>
+            
+            <ul>
+              <li>
+                Started with classic CV methods (<b>edge detection</b>, <b>pattern/template matching</b> in OpenCV).
+              </li>
+              <li>
+                Validated on a dataset of <b>~10,000 images</b>; the initial approach produced <b>~10–15 failures</b>, then redesigned the pipeline for robustness.
+              </li>
+              <li>
+                Improved reliability by <b>automatically detecting bucket geometry</b> (edge-based boundary detection) and matching the bucket bottom with a template,
+                which handled inconsistencies across camera setups.
+              </li>
+            </ul>
+            
+            <p>
+              <b>Outcome:</b> The revised method reduced failures to almost none in testing and was prepared for integration into the kiosk software stack.
+            </p>
+            
+            <h4>2) Misplaced Cartridge Detection to Prevent Robot Collisions</h4>
+            <p>
+              <b>Goal:</b> Prevent the robotic grabber from colliding with <b>misplaced cartridges</b>, using <b>two side cameras</b> to monitor cartridge placement.
+            </p>
+            
+            <ul>
+              <li>
+                Attempted edge-based cartridge detection first, but camera quality made results unstable.
+              </li>
+              <li>
+                Introduced <b>AprilTags</b> on cartridge sides (a change allowed on consumables), enabling robust detection with limited compute and poor imaging conditions.
+              </li>
+              <li>
+                Defined the expected tag positions for “correctly seated” cartridges and handled a key ambiguity where deeper tags could overlap another row’s region.
+              </li>
+              <li>
+                Used <b>tag pixel size + solvePnP</b> (with real-world tag dimensions) to estimate depth/pose, and performed <b>camera calibration + distortion correction</b>
+                to stabilize measurements.
+              </li>
+            </ul>
+            
+            <p>
+              <b>Outcome:</b> By the end of the internship, the pipeline was close to finalization with the aim of reducing collision-related maintenance across machines.
+            </p>
+          </div>
+        </details>
       <hr/>
       
 
