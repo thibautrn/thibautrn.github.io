@@ -178,6 +178,20 @@
       .headline{ font-size: 26px; }
     }
 
+    .pdfWrap{
+      margin-top: 10px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      height: 520px;          /* change height here */
+    }
+    .pdfWrap iframe{
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     
   </style>
 </head>
@@ -278,6 +292,23 @@
                 allowfullscreen
               ></iframe>
             </div>
+            <div class="links">
+              <span class="pill">📄 <a href="assets/thesis.pdf" target="_blank" rel="noreferrer">Open PDF</a></span>
+              <span class="pill">⬇️ <a href="assets/thesis.pdf" download>Download</a></span>
+            </div>
+            
+            <!-- PDF preview -->
+            <div class="pdfWrap">
+              <iframe
+                src="assets/thesis.pdf#view=FitH"
+                title="Thesis PDF preview"
+                loading="lazy"
+              ></iframe>
+            </div>
+            
+            <p class="muted" style="margin-top:8px">
+              If the preview doesn’t load on mobile, use “Open PDF”.
+            </p>
           </div>
         </div>
       </details>
