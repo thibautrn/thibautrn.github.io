@@ -136,36 +136,97 @@
   
     .dropBody{ padding: 0 14px 14px; }
     .dropBody .exp{ margin-top: 10px; }
+
+      /* Header layout with avatar */
+    .hero{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .avatar{
+      width:108px;
+      height:108px;
+      border-radius:18px;            /* rounded square; change to 999px for circle */
+      object-fit:cover;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+      background: rgba(0,0,0,.2);
+      flex: 0 0 auto;
+    }
+    .heroText{ flex:1; min-width: 0; }
+    .headline{
+      margin: 0;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      line-height: 1.15;
+    }
+    .subline{
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .looking{
+      margin: 10px 0 0;
+      line-height: 1.7;
+    }
+    .looking b{ color: #dbeafe; }
+  
+    @media (max-width: 640px){
+      .hero{ align-items:flex-start; }
+      .avatar{ width:86px; height:86px; border-radius:16px; }
+      .headline{ font-size: 26px; }
+    }
+
+    
   </style>
 </head>
 
 <body>
   <div class="wrap">
 
+    <!-- 2) Replace ONLY your current <header>...</header> with this version -->
+
     <header>
-      <h1 class="name">Thibaut Roisin</h1>
-      <p class="role">Robotics & Autonomous Systems (MS) • AI / Machine Vision / Simulation • Seeking roles starting 2026</p>
-
-      <div class="links">
-        <span class="pill">📞 <a href="tel:+16024920613">602-492-0613</a></span>
-        <span class="pill">✉️ <a href="mailto:thibautroisin@icloud.com">thibautroisin@icloud.com</a></span>
-        <span class="pill">🔗 <a href="https://linkedin.com/in/Thibautrn" target="_blank" rel="noreferrer">linkedin.com/in/Thibautrn</a></span>
-        <span class="pill">💻 <a href="https://github.com/thibautrn" target="_blank" rel="noreferrer">github.com/thibautrn</a></span>
-      </div>
-
-      <div class="tagrow">
-        <span class="tag">ROS</span>
-        <span class="tag">MuJoCo</span>
-        <span class="tag">Gazebo</span>
-        <span class="tag">Isaac Sim / IsaacLab</span>
-        <span class="tag">Python</span>
-        <span class="tag">C/C++</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">LLMs</span>
-        <span class="tag">Computer Vision</span>
-        <span class="tag">UDP / Real-time streaming</span>
+      <div class="hero">
+        <!-- Put your photo in your repo, e.g. /assets/me.jpg (GitHub Pages friendly) -->
+        <img class="avatar" src="assets/me.jpeg" alt="Thibaut Roisin" />
+    
+        <div class="heroText">
+          <h1 class="headline">Thibaut Roisin</h1>
+    
+          <p class="subline">
+            Robotics & Autonomous Systems (MS) • AI / Machine Vision / Simulation
+          </p>
+    
+          <p class="looking">
+            <b>Looking for:</b> Robotics / ML / Computer Vision roles starting <b>2026</b>.
+            Interested in real-time systems, robot control, and perception pipelines (ROS2, MuJoCo, OpenCV, PyTorch).
+          </p>
+    
+          <div class="links">
+            <span class="pill">📞 <a href="tel:+16024920613">602-492-0613</a></span>
+            <span class="pill">✉️ <a href="mailto:thibautroisin@icloud.com">thibautroisin@icloud.com</a></span>
+            <span class="pill">🔗 <a href="https://linkedin.com/in/Thibautrn" target="_blank" rel="noreferrer">linkedin.com/in/Thibautrn</a></span>
+            <span class="pill">💻 <a href="https://github.com/thibautrn" target="_blank" rel="noreferrer">github.com/thibautrn</a></span>
+          </div>
+    
+          <div class="tagrow">
+            <span class="tag">ROS</span>
+            <span class="tag">MuJoCo</span>
+            <span class="tag">Gazebo</span>
+            <span class="tag">Isaac Sim / IsaacLab</span>
+            <span class="tag">Python</span>
+            <span class="tag">C/C++</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">UDP / Real-time streaming</span>
+          </div>
+        </div>
       </div>
     </header>
+
 
     <section>
       <h2>Experience</h2>
